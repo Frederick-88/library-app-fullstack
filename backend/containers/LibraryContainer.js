@@ -3,6 +3,7 @@ const Library = require("../models/LibraryModel");
 module.exports={
     createLibrary: (req,res,next) => {
         Library.create({
+            imageBook : req.body.imageBook,
             bookTitle: req.body.bookTitle,
             years: req.body.years,
             bookNumber: req.body.bookNumber,
@@ -39,6 +40,7 @@ module.exports={
 
     editById: (req,res,next) => {
         Library.findByIdAndUpdate(req.params.libraryId,{
+            imageBook : req.body.imageBook,
             bookTitle: req.body.bookTitle,
             years: req.body.years,
             bookNumber: req.body.bookNumber,

@@ -2,6 +2,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const libraryModel = new Schema({
+    imageBook:{
+        type: String
+    },
     bookTitle : {
         type: String,
         required: true  

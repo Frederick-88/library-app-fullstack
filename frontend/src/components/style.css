@@ -1,0 +1,36 @@
+.btn-fx{
+    font-size: 20px!important;
+}
+.btn-fx:hover{
+    background-color: rgb(0, 0, 0) !important;
+    background-image: none!important;
+    border: 1px solid rgb(0, 0, 0) !important;
+}
+
+.div-bg-2{
+    background-color: #eeeeee;
+}
+
+.img-carousel{
+    height: 200px; width: 100%;
+
+}
+
+.header-hot-1{
+    font-size: 40px;
+    color: #D9230F;
+}
+
+.hr-fx{
+    border: 2px solid #D9230F;
+}
+
+.dot {
+    height: 30px;
+    width: 30px;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
