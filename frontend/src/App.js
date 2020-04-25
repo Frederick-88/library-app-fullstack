@@ -6,7 +6,9 @@ import {Provider} from "react-redux"
 import MainContent from "./components/libraryMain"
 import Navbar from "./components/Navbar"
 import ListBooks from "./components/ListBooks/Books"
+// import CardCarousel from "./components/CardCarousel"
 import Footer from "./components/Footer"
+import Footer2 from "./components/Footer2"
 
 const store = createStore
 // (reducers, applyMiddleware(thunk));
@@ -18,10 +20,12 @@ const store = createStore
 function App() {
   return (
     // <Provider store={store}>
+    
       <Router>
 
         <Navbar/>
         <Switch>
+        <div className="bg-utama">
         <Route path="/BooksList">
             <ListBooks />
           </Route>
@@ -29,11 +33,18 @@ function App() {
           <Route exact path="/">
             <MainContent />
           </Route>
-
+          </div>
         </Switch>
+        {/* <CardCarousel/> */}
+        
+        <div className="footer-bg">
         <Footer/>
+        </div>
+
+        <Footer2/>
 
       </Router>
+      
     // </Provider>
   );
 }

@@ -5,7 +5,7 @@ export default function Navbar(){
     return(
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <Link class="navbar-brand" to="/">LIBRARY</Link >
+  <Link class="navbar-brand" to="/">FD-LIBRARY</Link >
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

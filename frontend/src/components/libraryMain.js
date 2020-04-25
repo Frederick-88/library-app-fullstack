@@ -4,19 +4,18 @@ import "./style.css";
 
 export default function libraryMain() {
   return (
-    <div>
-      <div class="jumbotron p-0 mb-0 row">
-        <div className="col ml-5 pt-5 mt-4">
+    <div className="container ">
+
+      <div class="jumbotron p-0 mb-0 ml-0 row">
+
+        <div className="col ml-5 pt-4 mt-4">
           <h1 class="display-4">Hello, Smart People!</h1>
           <p class="lead">
             This is a simple hero unit, a simple jumbotron-style component for
             calling extra attention to featured content or information.
           </p>
           <hr class="my-4" />
-          <p>
-            It uses utility classes for typography and spacing to space content
-            out within the larger container.
-          </p>
+         
           <button type="button" class="btn btn-primary btn-fx pl-3 pr-3">
             Check Our List of Books
           </button>
@@ -36,15 +35,16 @@ export default function libraryMain() {
           <div className="col text-center">
             <button
               type="button "
-              class="btn btn-primary btn-fx pl-3 pr-3 mt-4"
-            >
+              class="btn btn-primary btn-fx pl-3 pr-3 mt-4">
               See More of Our Hot Books
+              <i class="fas fa-arrow-right pl-3"></i>
             </button>
           </div>
         </div>
 
         <hr className="hr-fx mb-4" />
 
+{/* CARD CAROUSEL 1 */}
         <div className="row">
 
           <div className="col">
@@ -62,7 +62,7 @@ export default function libraryMain() {
               </div>
             </div>
           </div>
-    
+
           <div className="col">
             <div class="card mb-3">
               <h3 class="card-header">Book Title</h3>
@@ -140,16 +140,17 @@ export default function libraryMain() {
             <div className="col text-center">
               <button
                 type="button "
-                class="btn btn-primary btn-fx pl-3 pr-3 mt-4"
-              >
+                class="btn btn-primary btn-fx pl-3 pr-3 mt-4">
                 Check out the Available Books!
+                <i class="fas fa-arrow-right pl-3"></i>
               </button>
             </div>
           </div>
   
           <hr className="hr-fx mb-4" />
   
-          <div className="row">
+  {/* CARD CAROUSEL 2 */}
+          <div className="row mb-4">
   
             <div className="col">
               <div class="card mb-3">
