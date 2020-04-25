@@ -6,6 +6,7 @@ import {Provider} from "react-redux"
 import MainContent from "./components/libraryMain"
 import Navbar from "./components/Navbar"
 import ListBooks from "./components/ListBooks/Books"
+import Footer from "./components/Footer"
 
 const store = createStore
 // (reducers, applyMiddleware(thunk));
@@ -30,6 +31,8 @@ function App() {
           </Route>
 
         </Switch>
+        <Footer/>
+
       </Router>
     // </Provider>
   );

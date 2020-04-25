@@ -62,7 +62,7 @@ export default function libraryMain() {
               </div>
             </div>
           </div>
-
+    
           <div className="col">
             <div class="card mb-3">
               <h3 class="card-header">Book Title</h3>

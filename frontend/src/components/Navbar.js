@@ -18,7 +18,7 @@ export default function Navbar(){
       </li>
     </ul> */}
 
-<button type="button" class="btn btn-secondary mr-auto">List of Books</button>
+<button type="button" class="btn btn-secondary mr-auto"><Link to="/BooksList">List of Books</Link></button>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search The Book you Want Here!"/>
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
