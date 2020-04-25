@@ -14,12 +14,15 @@ module.exports={
         })
     },
 
-    getLibraryData: (req,res,next) => {
+    getLibraryData: (req,res) => {
         Library.find({})
         .then ((result)=>{
-            res.json({ message:"This is the Data.", data:result})
+            res.json({ 
+                status:"This is the Data.", 
+                data:result 
+            })
         })
-        .catch((error)=> error )
+        .catch((error)=> res.json(error));
     },
 
     getLibraryDataById: (req,res,next) => {

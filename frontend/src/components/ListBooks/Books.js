@@ -1,10 +1,42 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import { connect } from 'react-redux';
 
-export default function ListBooks(){
+import {GetDataLibrary} from '../../actionCreators/LibraryAction'
+
+const ListBooks = (props) => {
+
+    // PERLU TANYA
+    useEffect(()=>{
+        props.GetDataLibrary()
+    },[])
 
         return (
             <div>
-                TES listbook
+                <div className="container">
+                    <h1>FD-LIBRARY BOOKS LISTS</h1>
+                    <div className="row">
+                        {
+                            props.data.map((item)=>{
+                                
+                                
+                                return(
+                                    <div className="col">{item.name}</div>
+                                )
+                            })
+                        }
+
+                    </div>
+                </div>
             </div>
         )
     }
+
+    const mapStateToProps = (state) => {
+        return{
+            data: state.LibraryReducer.data
+        }
+    }
+
+    const mapDispatchToProps = {GetDataLibrary}
+
+    export default connect(mapStateToProps, mapDispatchToProps)(ListBooks)

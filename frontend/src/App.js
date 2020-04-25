@@ -2,6 +2,7 @@ import React from 'react';
 import { createStore, applyMiddleware } from "redux"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import {Provider} from "react-redux"
+import thunk from "redux-thunk";
 
 import MainContent from "./components/libraryMain"
 import Navbar from "./components/Navbar"
@@ -10,16 +11,18 @@ import ListBooks from "./components/ListBooks/Books"
 import Footer from "./components/Footer"
 import Footer2 from "./components/Footer2"
 
-const store = createStore
-// (reducers, applyMiddleware(thunk));
+import reducers from "./reducers"
 
-// store.subscribe(()=>{
-//   console.log("dari subscribe punya", store.getState());
-// })
+const store = createStore
+(reducers, applyMiddleware(thunk));
+
+store.subscribe(()=>{
+  console.log("dari subscribe punya", store.getState());
+})
 
 function App() {
   return (
-    // <Provider store={store}>
+    <Provider store={store}>
     
       <Router>
 
@@ -45,7 +48,7 @@ function App() {
 
       </Router>
       
-    // </Provider>
+     </Provider>
   );
 }
 

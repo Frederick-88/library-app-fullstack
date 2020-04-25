@@ -18,8 +18,8 @@ const libraryModel = new Schema({
         required: true  
     },
     status : {
-        type: String,
+        type: Boolean,
         required: true  
-    }
+    },
 })
 module.exports = mongoose.model('library',libraryModel)
