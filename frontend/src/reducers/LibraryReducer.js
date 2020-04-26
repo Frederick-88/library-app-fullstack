@@ -4,6 +4,7 @@ const initialState = {
 }
 
 const LibraryReducer = (state = initialState, action) => {
+    let data
     switch (action.type){
         case 'GET_DATA_LIBRARY':
             return {...state, data:action.payload}
