@@ -1,8 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {useFormik} from "formik"
+import axios from "axios"
+
 import Logo from "../inspirations-assets/email.png";
 
 export default function Footer() {
+  
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+      axios.post("http://localhost:8500/dataEmail", values )
+      .then((respond) => {
+        window.alert("BERHASIL MENAMBAH DATA.");
+        console.log(respond.data);
+        
+      });
+    },
+  });
   return (
     <div className="container">
         
@@ -14,13 +32,17 @@ export default function Footer() {
         </div>
         
         <div className="col-6 pt-4">
+        <form onSubmit={formik.handleSubmit}>
         <div class="form-group">
             <label for="exampleInputPassword1"className="h5 text-white">Your Name</label>
             <input
-              type="password"
+              type="text"
               class="form-control pt-2 pb-2 form-control-lg"
               id="exampleInputPassword1"
-              placeholder="Password"
+              name="name"
+              placeholder="Your Name"
+              onChange={formik.handleChange}
+              value={formik.values.name}
             />
           </div>
 
@@ -29,9 +51,12 @@ export default function Footer() {
             <input
               type="email"
               class="form-control form-control-lg"
-              id="exampleInputEmail1"
+              id="email"
+              name="email"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Your Email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
             />
             <small id="emailHelp" class="form-text h6 text-white">
               We'll never share your email with anyone else.
@@ -39,10 +64,10 @@ export default function Footer() {
           </div>
          
 
-          <button type="button" class="btn btn-lg btn-secondary mt-4 btn-fx-2 w-100 font-weight-bold">
+          <button type="submit" class="btn btn-lg btn-secondary mt-4 btn-fx-2 w-100 font-weight-bold">
             SUBMIT
           </button>
-
+          </form>
         </div>
       </div>
 

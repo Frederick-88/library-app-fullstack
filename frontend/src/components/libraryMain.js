@@ -18,7 +18,7 @@ export default function libraryMain() {
           </p>
           <hr class="my-4" />
          
-          <Link to={ListOfBooks}><button type="button" class="btn btn-primary btn-fx pl-3 pr-3">
+          <Link to="/BooksList"><button type="button" class="btn btn-primary btn-fx pl-3 pr-3">
             Check Our List of Books
           </button></Link>
         </div>
@@ -35,12 +35,12 @@ export default function libraryMain() {
             <h1 className="header-hot-1 pt-3 mb-2 pl-5">Hot Books</h1>
           </div>
           <div className="col text-center">
-            <button
+          <Link to="/BooksList"><button
               type="button "
               class="btn btn-primary btn-fx pl-3 pr-3 mt-4">
               See More of Our Hot Books
               <i class="fas fa-arrow-right pl-3"></i>
-            </button>
+            </button></Link>
           </div>
         </div>
 
@@ -48,6 +48,7 @@ export default function libraryMain() {
 
 {/* CARD CAROUSEL 1 */}
         <div className="row">
+          {/* PENGULANGAN PAKAI BAHAN DARI BOOKS ITU, DITAMBAH DENGAN KONDISI FOR I<5. */}
 
           <div className="col">
             <div class="card mb-3">
@@ -140,12 +141,12 @@ export default function libraryMain() {
               <h1 className="header-hot-1 pt-3 mb-2 pl-5">Available Books</h1>
             </div>
             <div className="col text-center">
-              <button
+            <Link to="/BooksList"><button
                 type="button "
                 class="btn btn-primary btn-fx pl-3 pr-3 mt-4">
                 Check out the Available Books!
                 <i class="fas fa-arrow-right pl-3"></i>
-              </button>
+              </button></Link>
             </div>
           </div>
   

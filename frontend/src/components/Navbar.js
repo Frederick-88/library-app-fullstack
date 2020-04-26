@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-// LIST TANYA : SHOWADD, COL, IF NO IMAGE-GIVE IMAGE DEFAULT HOW?
+// LIST TANYA : SHOWADD, COL, IF NO IMAGE-GIVE IMAGE DEFAULT HOW?, HABIS ADD HARUS REFRESH BARU BISA, ADD-EDIT-ERASE(PROBLEM)
 
 export default function Navbar(){
     return(

@@ -16,7 +16,7 @@ export const addBookLibrary = (dataInitial) => {
 
 export const editBookLibrary = (dataInitial) => {
     return dispatch => {
-        axios.put(`${url}/edit/${dataInitial.id}`,dataInitial)
+        axios.put(`${url}/edit/${dataInitial._id}`,dataInitial)
         .then((response)=>{
             // debugger;
             dispatch({
