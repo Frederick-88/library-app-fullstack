@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import {Button, Modal} from 'react-bootstrap'
+    
+import { editBookLibrary } from "../../actionCreators/LibraryAction";
 
-import { addBookLibrary } from "../../actionCreators/LibraryAction";
-
-const AddDataLibrary = (props) => {
+const EditDataLibrary = (props) => {
 
   const [showLibrary, setShowLibrary] = useState(false);
 
-  const handleCloseAdd = () => setShowLibrary(false);
-  const handleShowAdd = () => setShowLibrary(true);
+  const handleClose = () => setShowLibrary(false);
+  const handleShow = () => setShowLibrary(true);
 
-  const [data, setData] = useState({
+//   const [data, setData] = useState({
+//     bookTitle: props.data.bookTitle,
+//     imageBook: props.data.bookTitle,
+//     years: props.data.bookTitle,
+//     bookNumber: props.data.bookTitle,
+//     status: props.data.status,
+//   })
+
+const [data, setData] = useState({
     bookTitle: "",
-    imageBook:"",
-    years:"",
-    bookNumber:"",
+    imageBook: "",
+    years: "",
+    bookNumber: "",
     status: false,
   })
+
   console.log(data);
   
-  const handlePost = () => {
-    props.addBookLibrary(data)
-    handleCloseAdd()
+  const handleEdit = () => {
+    props.editBookLibrary(data)
+    handleClose()
   }
 
   const handleChange = (event) => {
@@ -40,15 +49,20 @@ const AddDataLibrary = (props) => {
     }
   }
 
+//   useEffect(() => {
+//     setData(props.data)
+//     console.log(props.data)
+//   }, [props.data])
+
   return (
     <div>
-      <Button variant="primary btn-fx pl-3 pr-3" onClick={handleShowAdd}>
-        Add a new Book Here !<i class="fas fa-book-medical pl-3"></i>
+      <Button variant="warning pl-3 pr-3" onClick={handleShow}>
+         Edit Book <i class="fas fa-book-medical pl-1"></i>
       </Button>
 
-      <Modal show={showLibrary} onHide={handleCloseAdd}>
-        <Modal.Header closeButton>
-          <Modal.Title>Please Fill This Form To Add Book</Modal.Title>
+      <Modal show={showLibrary} onHide={handleClose}>
+        <Modal.Header closeButton className="bg-warning">
+          <Modal.Title>Please Fill This Form To Edit Book</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div class="form-group">
@@ -116,11 +130,11 @@ const AddDataLibrary = (props) => {
         </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseAdd}>
+          <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handlePost}>
-            Save Changes
+          <Button variant="primary" onClick={handleEdit}>
+            Save Edit Changes
           </Button>
         </Modal.Footer>
       </Modal>
@@ -130,12 +144,13 @@ const AddDataLibrary = (props) => {
 
 // const mapStateToProps = (state) => {
 //   return {
-    
+//     //   BTUH PERTANYAAN
+//     data: state.LibraryReducer
 //   };
 // };
 
 const mapDispatchToProps = {
-  addBookLibrary
+  editBookLibrary
 };
 
-export default connect(null, mapDispatchToProps)(AddDataLibrary);
+export default connect(null, mapDispatchToProps)(EditDataLibrary);

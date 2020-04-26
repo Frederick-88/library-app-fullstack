@@ -14,6 +14,26 @@ export const addBookLibrary = (dataInitial) => {
     }
 }
 
+export const editBookLibrary = (dataInitial) => {
+    return dispatch => {
+        axios.put(`${url}/edit/${dataInitial.id}`,dataInitial)
+        .then((response)=>{
+            debugger;
+            dispatch({
+                type: 'EDIT_DATA_LIBRARY',
+                payload: response.data
+            })
+        })
+    }
+}
+
+export const showEdit = (data) => {
+    return {
+        type: 'LIBRARIES_SHOW_EDIT',
+        payload: data
+    }
+}
+
 export const GetDataLibrary = () => {
     return(dispatch) => {
         axios.get('http://localhost:8000/library/get')

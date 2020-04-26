@@ -1,7 +1,12 @@
 import React from "react";
 import '../style.css'
 
+import {connect} from 'react-redux'
+
+import EditBookForm from "./BooksEdit"
+
 const BooksItem = (props) => {
+    
   return (
     //   KALAU COL3- RAPI, GA RESPONSIVE. TANPA COL-3, RESPONSIVE, GA RAPI.
     <div className="col-3">
@@ -17,9 +22,12 @@ const BooksItem = (props) => {
             <b> Code : </b> {props.dataLibrary.bookNumber}
           </p>
         </div>
+        <div>
+        <EditBookForm/>
+        </div>
       </div>
     </div>
   );
 };
 
-export default BooksItem;
+export default  connect(null,null)(BooksItem);

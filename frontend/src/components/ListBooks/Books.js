@@ -6,6 +6,8 @@ import { GetDataLibrary } from "../../actionCreators/LibraryAction";
 import BooksItem from "./BooksItem";
 import AddBookForm from "./BooksAdd"
 
+import Edit from "./BooksEdit"
+
 const ListBooks = (props) => {
   // PERLU TANYA
   useEffect(() => {
@@ -37,6 +39,7 @@ const ListBooks = (props) => {
           })}
         </div>
       </div>
+      <Edit/>
 
     </div>
   );
