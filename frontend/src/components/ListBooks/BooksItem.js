@@ -3,7 +3,8 @@ import '../style.css'
 
 const BooksItem = (props) => {
   return (
-    <div className="col">
+    //   KALAU COL3- RAPI, GA RESPONSIVE. TANPA COL-3, RESPONSIVE, GA RAPI.
+    <div className="col-3">
       <div class="card mb-3">
         <h3 class="card-header h4">{props.dataLibrary.bookTitle}</h3>
         <img className="img-carousel-2" src={props.dataLibrary.imageBook} alt="..." />

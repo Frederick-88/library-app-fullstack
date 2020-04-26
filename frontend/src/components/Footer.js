@@ -14,6 +14,16 @@ export default function Footer() {
         </div>
         
         <div className="col-6 pt-4">
+        <div class="form-group">
+            <label for="exampleInputPassword1"className="h5 text-white">Your Name</label>
+            <input
+              type="password"
+              class="form-control pt-2 pb-2 form-control-lg"
+              id="exampleInputPassword1"
+              placeholder="Password"
+            />
+          </div>
+
           <div class="form-group">
             <label for="exampleInputEmail1" className="h5 text-white">EMAIL ADDRESS</label>
             <input
@@ -27,15 +37,7 @@ export default function Footer() {
               We'll never share your email with anyone else.
             </small>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1"className="h5 text-white">PASSWORD</label>
-            <input
-              type="password"
-              class="form-control pt-2 pb-2 form-control-lg"
-              id="exampleInputPassword1"
-              placeholder="Password"
-            />
-          </div>
+         
 
           <button type="button" class="btn btn-lg btn-secondary mt-4 btn-fx-2 w-100 font-weight-bold">
             SUBMIT

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect,} from "react";
 import { connect } from "react-redux";
-import {Button, Modal} from 'react-bootstrap'
 
-import { GetDataLibrary, ShowAddLibrary } from "../../actionCreators/LibraryAction";
+import { GetDataLibrary } from "../../actionCreators/LibraryAction";
 
 import BooksItem from "./BooksItem";
 import AddBookForm from "./BooksAdd"
@@ -17,11 +16,6 @@ const ListBooks = (props) => {
 //     props.ShowAddLibrary()
 // };
 
-const [showLibrary, setShowLibrary] = useState(false);
-
-const handleClose = () => setShowLibrary(false);
-const handleShow = () => setShowLibrary(true);
-
   return (
     <div>
 
@@ -33,25 +27,8 @@ const handleShow = () => setShowLibrary(true);
           Add a new Book Here !  
           <i class="fas fa-book-medical pl-3"></i>
         </button> */}
-    <Button variant="primary btn-fx pl-3 pr-3" onClick={handleShow}>
-    Add a new Book Here !
-      <i class="fas fa-book-medical pl-3"></i>
-    </Button>
 
-    <Modal show={showLibrary} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Please Fill This Form To Add Book</Modal.Title>
-      </Modal.Header>
-      <Modal.Body><AddBookForm/></Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleClose}>
-          Save Changes
-        </Button>
-      </Modal.Footer>
-    </Modal>
+        <AddBookForm/>
         </div>
 
         <div className="row">
@@ -71,6 +48,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { GetDataLibrary,ShowAddLibrary };
+const mapDispatchToProps = { GetDataLibrary };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListBooks);
