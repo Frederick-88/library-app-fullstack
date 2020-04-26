@@ -2,10 +2,10 @@ const initialState = {
     data: [],
     isShowAdd: false,
     isShowEdit: false,
+    isShowDelete: false,
 }
 
 const LibraryReducer = (state = initialState, action) => {
-    let data
     switch (action.type){
         case 'GET_DATA_LIBRARY':
             return {...state, data:action.payload}
@@ -14,11 +14,22 @@ const LibraryReducer = (state = initialState, action) => {
             return {...state, data: [...state.data, action.payload]};
 
         case 'LIBRARIES_SHOW_EDIT':
-            return {...state, isShowEdit: true, data: action.payload}
+            return {...state, isShowEdit: true}
+
+        case 'LIBRARIES_HIDE_EDIT':
+            return {...state, isShowEdit: false}
+
+        case 'LIBRARIES_SHOW_DELETE':
+            return {...state, isShowDelete: true}
+
+        case 'LIBRARIES_HIDE_DELETE':
+            return {...state, isShowDelete: false}
 
         case 'EDIT_DATA_LIBRARY':
-             data = state.data.map((item) => {
-                if (item.id === action.payload.id)
+             const {data} = state.data.map((item) => {
+                 console.log(data);
+                 
+                if (item._id === action.payload._id)
                     return action.payload;
                 return item;
             })            

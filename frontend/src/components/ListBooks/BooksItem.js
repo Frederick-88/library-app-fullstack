@@ -1,11 +1,20 @@
 import React from "react";
 import '../style.css'
+import {Button} from 'react-bootstrap'
 
 import {connect} from 'react-redux'
 
-import EditBookForm from "./BooksEdit"
+import {showEditForm, showDeleteForm} from "../../actionCreators/LibraryAction"
 
 const BooksItem = (props) => {
+
+    const showFormEdit = () => {
+        props.showEditForm();
+    }
+
+    const showFormDelete = () => {
+        props.showDeleteForm();
+    }
     
   return (
     //   KALAU COL3- RAPI, GA RESPONSIVE. TANPA COL-3, RESPONSIVE, GA RAPI.
@@ -22,12 +31,22 @@ const BooksItem = (props) => {
             <b> Code : </b> {props.dataLibrary.bookNumber}
           </p>
         </div>
-        <div>
-        <EditBookForm/>
+        <div className="text-center">
+        <Button variant="info pl-2 pr-2 w-100" onClick={showFormEdit}>
+        Edit Book Here !<i class="fas fa-pen-square pl-2"></i>
+      </Button>
+      <Button variant="primary pl-2 pr-2 w-100" onClick={showFormDelete}>
+        DELETE BOOK<i class="fas fa-trash-alt pl-2"></i>
+      </Button>
         </div>
       </div>
     </div>
   );
 };
 
-export default  connect(null,null)(BooksItem);
+const mapDispatchToProps = {
+    showEditForm,
+    showDeleteForm
+}
+
+export default  connect(null,mapDispatchToProps)(BooksItem);

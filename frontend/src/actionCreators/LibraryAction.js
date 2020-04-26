@@ -18,21 +18,51 @@ export const editBookLibrary = (dataInitial) => {
     return dispatch => {
         axios.put(`${url}/edit/${dataInitial.id}`,dataInitial)
         .then((response)=>{
-            debugger;
+            // debugger;
             dispatch({
                 type: 'EDIT_DATA_LIBRARY',
-                payload: response.data
+                payload: response.data.data
             })
         })
     }
 }
 
-export const showEdit = (data) => {
-    return {
-        type: 'LIBRARIES_SHOW_EDIT',
-        payload: data
+export const showEditForm = () => {
+    return (dispatch)=>{
+
+        dispatch({
+            type: 'LIBRARIES_SHOW_EDIT'
+        })
     }
 }
+
+export const hideEditForm = () => {
+    return (dispatch)=>{
+
+        dispatch({
+            type: 'LIBRARIES_HIDE_EDIT'
+        })
+    }
+}
+
+export const showDeleteForm = () => {
+    return (dispatch)=>{
+
+        dispatch({
+            type: 'LIBRARIES_SHOW_DELETE'
+        })
+    }
+}
+
+export const hideDeleteForm = () => {
+    return (dispatch)=>{
+
+        dispatch({
+            type: 'LIBRARIES_HIDE_DELETE'
+        })
+    }
+}
+
 
 export const GetDataLibrary = () => {
     return(dispatch) => {

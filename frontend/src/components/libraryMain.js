@@ -1,5 +1,7 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 import ReadPng from "../inspirations-assets/read.png";
+import ListOfBooks from "./ListBooks/Books"
 import "./style.css";
 
 export default function libraryMain() {
@@ -11,14 +13,14 @@ export default function libraryMain() {
         <div className="col ml-5 pt-4 mt-4">
           <h1 class="display-4">Hello, Smart People!</h1>
           <p class="lead">
-            This is a simple hero unit, a simple jumbotron-style component for
-            calling extra attention to featured content or information.
+            Welcome to FD-LIBRARY, where all books are free to borrow. Let's
+            share the knowledge with everyone to make every one of us become better!
           </p>
           <hr class="my-4" />
          
-          <button type="button" class="btn btn-primary btn-fx pl-3 pr-3">
+          <Link to={ListOfBooks}><button type="button" class="btn btn-primary btn-fx pl-3 pr-3">
             Check Our List of Books
-          </button>
+          </button></Link>
         </div>
 
         <div className="col text-center">

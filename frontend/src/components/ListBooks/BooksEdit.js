@@ -1,39 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Modal, Button } from "react-bootstrap";
+
+// SUPAYA PENGGUNAAN MAPSTATE DAN DISPATCH BISA BERJALAN
 import { connect } from "react-redux";
-import {Button, Modal} from 'react-bootstrap'
-    
-import { editBookLibrary } from "../../actionCreators/LibraryAction";
 
-const EditDataLibrary = (props) => {
+// IMPORT INI ADALAH UNTUK PENGGUNAAN DISPATCH TO PROPS
+import { hideEditForm, editBookLibrary } from "../../actionCreators/LibraryAction";
 
-  const [showLibrary, setShowLibrary] = useState(false);
+const EditBookForm = (props) => {
+ 
+    const [data, setData] = useState({
+        bookTitle: "",
+        imageBook:"",
+        years:"",
+        bookNumber:"",
+        status: false,
+      })
+      console.log(data);
 
-  const handleClose = () => setShowLibrary(false);
-  const handleShow = () => setShowLibrary(true);
-
-//   const [data, setData] = useState({
-//     bookTitle: props.data.bookTitle,
-//     imageBook: props.data.bookTitle,
-//     years: props.data.bookTitle,
-//     bookNumber: props.data.bookTitle,
-//     status: props.data.status,
-//   })
-
-const [data, setData] = useState({
-    bookTitle: "",
-    imageBook: "",
-    years: "",
-    bookNumber: "",
-    status: false,
-  })
-
-  console.log(data);
-  
-  const handleEdit = () => {
-    props.editBookLibrary(data)
-    handleClose()
-  }
-
+  // CERITANYA KITA BUAT FUNCTION DENGAN NAMA HANDLECHANGE --- FOLLOW MY CODE (HC01)
   const handleChange = (event) => {
     let { name,value,type,checked} = event.currentTarget;
     if (type == "checkbox" ){
@@ -48,20 +33,20 @@ const [data, setData] = useState({
       });
     }
   }
+  // PROPS INI BERASAL DARI ACTION CREATORS DAN DARI SNA KITA NGAMBIL "SEMBUNYIKANTAMBAH".
+  // LIHATLAH IsShowAdd PADA REDUCERS.
+  const hideFormEdit = () => {
+    props.hideEditForm();
+  };
 
-//   useEffect(() => {
-//     setData(props.data)
-//     console.log(props.data)
-//   }, [props.data])
-
+  const submitFormEdit = () => {
+    console.log(data);
+    props.editBookLibrary(data)
+  }
   return (
-    <div>
-      <Button variant="warning pl-3 pr-3" onClick={handleShow}>
-         Edit Book <i class="fas fa-book-medical pl-1"></i>
-      </Button>
-
-      <Modal show={showLibrary} onHide={handleClose}>
-        <Modal.Header closeButton className="bg-warning">
+    // MENGIKUTI ALUR DARI BOOTSTRAP.
+    <Modal show={props.show} onHide={ hideFormEdit }>
+        <Modal.Header closeButton>
           <Modal.Title>Please Fill This Form To Edit Book</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -130,27 +115,29 @@ const [data, setData] = useState({
         </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={hideFormEdit}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleEdit}>
+          <Button variant="primary" onClick={submitFormEdit}>
             Save Edit Changes
           </Button>
         </Modal.Footer>
       </Modal>
-    </div>
   );
 };
 
-// const mapStateToProps = (state) => {
-//   return {
-//     //   BTUH PERTANYAAN
-//     data: state.LibraryReducer
-//   };
-// };
-
-const mapDispatchToProps = {
-  editBookLibrary
+// MAP INI KITA AMBIL DARI REDUCERS PADA GURU, KARENA HANYA DI REDUCERS KITA LEBIH PAKAI STATE.
+// DISINI KITA MEMBUAT YANG DIATAS PROPS.SHOW MENJADI MENGGUNAKAN IsShowAdd. SEHINGGA BISA MNCUL
+// LALU NENGOK AJA FUNCTION HIDE, ITU LAH PENGGUNAAN YANG TERJADI. HIDE DAN MUNCULKAN
+const mapStateToProps = (state) => {
+  return {
+    show: state.LibraryReducer.isShowEdit,
+  };
 };
 
-export default connect(null, mapDispatchToProps)(EditDataLibrary);
+const mapDispatchToProps = {
+    hideEditForm,
+    editBookLibrary
+ }; 
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditBookForm);
