@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import {GetDataLibrary} from '../../actionCreators/LibraryAction'
 
+import BooksItem from './BooksItem'
+
 const ListBooks = (props) => {
 
     // PERLU TANYA
@@ -16,11 +18,9 @@ const ListBooks = (props) => {
                     <h1>FD-LIBRARY BOOKS LISTS</h1>
                     <div className="row">
                         {
-                            props.data.map((item)=>{
-                                
-                                
-                                return(
-                                    <div className="col">{item.name}</div>
+                            props.data.map((item,index)=>{
+                                return( 
+                                    <BooksItem key={index} dataLibrary={item}></BooksItem>
                                 )
                             })
                         }

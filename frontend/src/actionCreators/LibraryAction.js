@@ -2,8 +2,8 @@ import axios from 'axios'
 
 export const GetDataLibrary = () => {
     return(dispatch) => {
-        // axios.get('http://localhost:8000/library/get')
-        axios.get('https://heroes-indonesia.herokuapp.com/heroes/get')
+        axios.get('http://localhost:8000/library/get')
+        // axios.get('https://heroes-indonesia.herokuapp.com/heroes/get')
         .then((response)=>{
         dispatch({
             type: 'GET_DATA_LIBRARY',

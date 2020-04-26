@@ -33,13 +33,12 @@
 }
 
 .dot {
-    height: 30px;
-    width: 30px;
+    height: 15px;
+    width: 15px;
     background-color: #1a1a1a;
     border-radius: 50%;
     display: inline-block;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
   }
   .footer-bg{
     background-color: #D9230F;

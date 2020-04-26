@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -14,6 +15,8 @@ mongoose.connect('mongodb://localhost/library', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+
+app.use(cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
