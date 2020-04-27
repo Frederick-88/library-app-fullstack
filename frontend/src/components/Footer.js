@@ -15,7 +15,7 @@ export default function Footer() {
       console.log(values);
       axios.post("http://localhost:8500/dataEmail", values )
       .then((respond) => {
-        window.alert("BERHASIL MENAMBAH DATA.");
+        window.alert("BERHASIL MENAMBAH DATA!");
         console.log(respond.data);
         
       });
