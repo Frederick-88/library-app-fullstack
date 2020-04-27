@@ -13,7 +13,8 @@ const BooksItem = (props) => {
     }
 
     const showFormDelete = () => {
-        props.showDeleteForm();
+      console.log(props.dataLibrary);
+      props.showDeleteForm(props.dataLibrary);
     }
     
   return (

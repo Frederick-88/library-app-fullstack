@@ -37,6 +37,28 @@ export const editBookLibrary = (dataInitial) => {
     }
 }
 
+export const DeleteBookLibrary = (DataInitial) => {
+    console.log(DataInitial);
+    return dispatch => {
+        axios.delete(`${url}/delete/${DataInitial._id}`,DataInitial)
+        
+        .then((response)=>{
+            // debugger;
+            dispatch({
+                type: 'DELETE_DATA_LIBRARY',
+                payload: DataInitial
+            })
+            dispatch({
+                type: 'LIBRARIES_HIDE_DELETE'
+            })
+        })
+        .catch((error)=>{
+            console.log(error);
+            
+        })
+    }
+}
+
 
 export const showEditForm = (dataInitial) => {
     return (dispatch)=>{
@@ -57,11 +79,12 @@ export const hideEditForm = () => {
     }
 }
 
-export const showDeleteForm = () => {
+export const showDeleteForm = (dataInitial) => {
     return (dispatch)=>{
 
         dispatch({
-            type: 'LIBRARIES_SHOW_DELETE'
+            type: 'LIBRARIES_SHOW_DELETE',
+            payload:dataInitial
         })
     }
 }

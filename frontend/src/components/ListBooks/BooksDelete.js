@@ -8,18 +8,15 @@ import { connect } from "react-redux";
 import { hideDeleteForm, DeleteBookLibrary } from "../../actionCreators/LibraryAction";
 
 const DeleteBookForm = (props) => {
- 
-    // const [data, setData] = useState({
-    //     bookTitle: "",
-    //     imageBook:"",
-    //     years:"",
-    //     bookNumber:"",
-    //     status: false,
-    //   })
-    //   console.log(data);
   
   // PROPS INI BERASAL DARI ACTION CREATORS DAN DARI SNA KITA NGAMBIL "SEMBUNYIKANTAMBAH".
   // LIHATLAH IsShowAdd PADA REDUCERS.
+
+  const handleDelete = () => {
+    console.log(props.dataDelete);
+    props.DeleteBookLibrary(props.dataDelete)
+  }
+
   const hideFormDelete = () => {
     props.hideDeleteForm();
   };
@@ -34,14 +31,14 @@ const DeleteBookForm = (props) => {
     <Modal show={props.show} onHide={ hideFormDelete }>
         <Modal.Header closeButton>
           <Modal.Title>Are you sure want to delete this Book
-            with the title of "{props.dataLibrary.bookTitle} "?</Modal.Title>
+  with the title of "{props.dataDelete.bookTitle}"?</Modal.Title>
         </Modal.Header>
 
         <Modal.Footer>
           <Button variant="secondary" onClick={hideFormDelete}>
             Close
           </Button>
-          <Button variant="primary" onClick={hideFormDelete}>
+          <Button variant="primary" onClick={handleDelete}>
             DELETE
           </Button>
         </Modal.Footer>
@@ -54,13 +51,13 @@ const DeleteBookForm = (props) => {
 const mapStateToProps = (state) => {
   return {
     show: state.LibraryReducer.isShowDelete,
-    dataLibrary: state.LibraryReducer.data
+    dataDelete: state.LibraryReducer.dataDelete
   };
 };
 
 const mapDispatchToProps = {
     hideDeleteForm,
-    // DeleteBookLibrary
+    DeleteBookLibrary
  }; 
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeleteBookForm);
