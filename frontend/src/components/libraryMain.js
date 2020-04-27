@@ -46,7 +46,7 @@ export default function libraryMain() {
 
         <hr className="hr-fx mb-4" />
 
-      <HomePageCards/>
+      {/* <HomePageCards/> */}
 
 {/* CARD CAROUSEL 1 */}
         <div className="row">

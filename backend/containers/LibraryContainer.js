@@ -15,6 +15,7 @@ module.exports={
     },
 
     getLibraryData: (req,res) => {
+        console.log(req);
         Library.find({})
         .then ((result)=>{
             res.json({ 
