@@ -31,7 +31,7 @@ const DeleteBookForm = (props) => {
     <Modal show={props.show} onHide={ hideFormDelete }>
         <Modal.Header closeButton>
           <Modal.Title>Are you sure want to delete this Book
-  with the title of "{props.dataDelete.bookTitle}"?</Modal.Title>
+  with the title of <p className="text-primary">"{props.dataDelete.bookTitle}"?</p></Modal.Title>
         </Modal.Header>
 
         <Modal.Footer>
