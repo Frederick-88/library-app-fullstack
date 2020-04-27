@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom'
 import ReadPng from "../inspirations-assets/read.png";
-import ListOfBooks from "./ListBooks/Books"
+import HomePageCards from "./HomeCard"
 import "./style.css";
 
 export default function libraryMain() {
@@ -45,6 +45,8 @@ export default function libraryMain() {
         </div>
 
         <hr className="hr-fx mb-4" />
+
+      {/* <HomePageCards/> */}
 
 {/* CARD CAROUSEL 1 */}
         <div className="row">

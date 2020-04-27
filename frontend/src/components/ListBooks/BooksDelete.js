@@ -33,7 +33,8 @@ const DeleteBookForm = (props) => {
     // MENGIKUTI ALUR DARI BOOTSTRAP.
     <Modal show={props.show} onHide={ hideFormDelete }>
         <Modal.Header closeButton>
-          <Modal.Title>Are you sure want to delete this Book?</Modal.Title>
+          <Modal.Title>Are you sure want to delete this Book
+            with the title of "{props.dataLibrary.bookTitle} "?</Modal.Title>
         </Modal.Header>
 
         <Modal.Footer>
@@ -53,6 +54,7 @@ const DeleteBookForm = (props) => {
 const mapStateToProps = (state) => {
   return {
     show: state.LibraryReducer.isShowDelete,
+    dataLibrary: state.LibraryReducer.data
   };
 };
 
