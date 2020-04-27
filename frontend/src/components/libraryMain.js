@@ -140,13 +140,13 @@ export default function libraryMain() {
           
           <div className="row">
             <div className="col">
-              <h1 className="header-hot-1 pt-3 mb-2 pl-5">Available Books</h1>
+              <h1 className="header-hot-1 pt-3 mb-2 pl-5">New Books</h1>
             </div>
             <div className="col text-center">
             <Link to="/BooksList"><button
                 type="button "
                 class="btn btn-primary btn-fx pl-3 pr-3 mt-4">
-                Check out the Available Books!
+                Check out our New Arrival Books!
                 <i class="fas fa-arrow-right pl-3"></i>
               </button></Link>
             </div>

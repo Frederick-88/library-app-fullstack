@@ -16,23 +16,34 @@ export const addBookLibrary = (dataInitial) => {
 }
 
 export const editBookLibrary = (dataInitial) => {
+    console.log(dataInitial);
     return dispatch => {
         axios.put(`${url}/edit/${dataInitial._id}`,dataInitial)
-        // .then((response)=>{
+        
+        .then((response)=>{
             // debugger;
             dispatch({
                 type: 'EDIT_DATA_LIBRARY',
                 payload: dataInitial
             })
-        // })
+            dispatch({
+                type: 'LIBRARIES_HIDE_EDIT'
+            })
+        })
+        .catch((error)=>{
+            console.log(error);
+            
+        })
     }
 }
 
-export const showEditForm = () => {
+
+export const showEditForm = (dataInitial) => {
     return (dispatch)=>{
 
         dispatch({
-            type: 'LIBRARIES_SHOW_EDIT'
+            type: 'LIBRARIES_SHOW_EDIT',
+            payload:dataInitial
         })
     }
 }

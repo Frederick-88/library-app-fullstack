@@ -9,7 +9,7 @@ import {showEditForm, showDeleteForm} from "../../actionCreators/LibraryAction"
 const BooksItem = (props) => {
 
     const showFormEdit = () => {
-        props.showEditForm();
+        props.showEditForm(props.dataLibrary);
     }
 
     const showFormDelete = () => {

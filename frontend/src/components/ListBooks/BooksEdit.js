@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
 // SUPAYA PENGGUNAAN MAPSTATE DAN DISPATCH BISA BERJALAN
@@ -9,14 +9,10 @@ import { hideEditForm, editBookLibrary } from "../../actionCreators/LibraryActio
 
 const EditBookForm = (props) => {
  
-    const [data, setData] = useState({
-        bookTitle: "",
-        imageBook:"",
-        years:"",
-        bookNumber:"",
-        status: false,
-      })
-      console.log(data);
+    const [data, setData] = useState(
+        props.dataEdit
+      )
+      // console.log(dataEdit);
 
   // CERITANYA KITA BUAT FUNCTION DENGAN NAMA HANDLECHANGE --- FOLLOW MY CODE (HC01)
   const handleChange = (event) => {
@@ -43,6 +39,12 @@ const EditBookForm = (props) => {
     console.log(data);
     props.editBookLibrary(data)
   }
+  // TANPA FITUR USE EFFECT, NANTI BOOK TITLE DLL BAKAL KOSONG DGN USEEFFECT BAKAL MNCUL DATA CARD TS.
+  useEffect(()=>{
+    setData(props.dataEdit)
+    console.log(props.dataEdit)
+  },[props.dataEdit])
+
   return (
     // MENGIKUTI ALUR DARI BOOTSTRAP.
     <Modal show={props.show} onHide={ hideFormEdit }>
@@ -132,6 +134,7 @@ const EditBookForm = (props) => {
 const mapStateToProps = (state) => {
   return {
     show: state.LibraryReducer.isShowEdit,
+    dataEdit: state.LibraryReducer.dataEdit
   };
 };
 
