@@ -11,8 +11,8 @@ export default function libraryMain() {
       <div class="jumbotron p-0 mb-0 ml-0 row">
 
         <div className="col ml-5 pt-4 mt-4">
-          <h1 class="display-4">Hello, Smart People!</h1>
-          <p class="lead">
+          <h1 class="header-jumbotron">Hello, Smart People!</h1>
+          <p class="lead text-justify">
             Welcome to FD-LIBRARY, where all books are free to borrow. Let's
             share the knowledge with everyone to make every one of us become better!
           </p>
@@ -46,7 +46,7 @@ export default function libraryMain() {
 
         <hr className="hr-fx mb-4" />
 
-      {/* <HomePageCards/> */}
+      <HomePageCards/>
 
 {/* CARD CAROUSEL 1 */}
         <div className="row">
@@ -157,7 +157,7 @@ export default function libraryMain() {
   {/* CARD CAROUSEL 2 */}
           <div className="row mb-4">
   
-            <div className="col">
+          <div className="col">
               <div class="card mb-3">
                 <h3 class="card-header">Book Title</h3>
                 <img className="img-carousel" src={ReadPng} alt="..." />
