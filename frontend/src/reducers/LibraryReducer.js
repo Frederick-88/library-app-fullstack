@@ -26,8 +26,8 @@ const LibraryReducer = (state = initialState, action) => {
             return {...state, isShowDelete: false}
 
         case 'EDIT_DATA_LIBRARY':
-             const {data} = state.data.map((item) => {
-                 console.log(data);
+            console.log(state.data);
+            const {data} = state.data.map((item) => {
                  
                 if (item._id === action.payload._id)
                     return action.payload;

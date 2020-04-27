@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
 // SUPAYA PENGGUNAAN MAPSTATE DAN DISPATCH BISA BERJALAN
@@ -9,14 +9,14 @@ import { hideDeleteForm, DeleteBookLibrary } from "../../actionCreators/LibraryA
 
 const DeleteBookForm = (props) => {
  
-    const [data, setData] = useState({
-        bookTitle: "",
-        imageBook:"",
-        years:"",
-        bookNumber:"",
-        status: false,
-      })
-      console.log(data);
+    // const [data, setData] = useState({
+    //     bookTitle: "",
+    //     imageBook:"",
+    //     years:"",
+    //     bookNumber:"",
+    //     status: false,
+    //   })
+    //   console.log(data);
   
   // PROPS INI BERASAL DARI ACTION CREATORS DAN DARI SNA KITA NGAMBIL "SEMBUNYIKANTAMBAH".
   // LIHATLAH IsShowAdd PADA REDUCERS.
@@ -24,10 +24,11 @@ const DeleteBookForm = (props) => {
     props.hideDeleteForm();
   };
 
-  const submitFormEdit = () => {
-    console.log(data);
-    props.editBookLibrary(data)
-  }
+  // const submitFormDelete = () => {
+  //   console.log(data);
+  //   props.editBookLibrary(data)
+  // }
+
   return (
     // MENGIKUTI ALUR DARI BOOTSTRAP.
     <Modal show={props.show} onHide={ hideFormDelete }>
@@ -40,7 +41,7 @@ const DeleteBookForm = (props) => {
             Close
           </Button>
           <Button variant="primary" onClick={hideFormDelete}>
-            Save Edit Changes
+            DELETE
           </Button>
         </Modal.Footer>
       </Modal>

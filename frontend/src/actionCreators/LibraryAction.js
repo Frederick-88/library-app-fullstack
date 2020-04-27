@@ -6,6 +6,7 @@ export const addBookLibrary = (dataInitial) => {
     return dispatch => {
         axios.post(`${url}/post`,dataInitial)
         .then((response)=>{
+            window.location.reload();
             dispatch({
                 type: 'ADD_DATA_LIBRARY',
                 payload: response.data
@@ -17,13 +18,13 @@ export const addBookLibrary = (dataInitial) => {
 export const editBookLibrary = (dataInitial) => {
     return dispatch => {
         axios.put(`${url}/edit/${dataInitial._id}`,dataInitial)
-        .then((response)=>{
+        // .then((response)=>{
             // debugger;
             dispatch({
                 type: 'EDIT_DATA_LIBRARY',
-                payload: response.data.data
+                payload: dataInitial
             })
-        })
+        // })
     }
 }
 

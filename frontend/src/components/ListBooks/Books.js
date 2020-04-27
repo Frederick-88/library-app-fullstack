@@ -7,6 +7,7 @@ import BooksItem from "./BooksItem";
 import AddBookForm from "./BooksAdd"
 
 import Edit from "./BooksEdit"
+import Delete from "./BooksDelete"
 
 const ListBooks = (props) => {
   // PERLU TANYA
@@ -40,6 +41,7 @@ const ListBooks = (props) => {
         </div>
       </div>
       <Edit/>
+      <Delete/>
 
     </div>
   );
